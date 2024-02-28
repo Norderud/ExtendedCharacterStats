@@ -39,6 +39,7 @@ function Init:OnPlayerLogin()
     -- Update whenever the CharacterFrame is shown
     PaperDollItemsFrame:HookScript("OnShow", function ()
         GearInfos.UpdateGearColorFrames()
+        Stats.UpdateInformation()
     end)
 
     EventHandler.Init()
