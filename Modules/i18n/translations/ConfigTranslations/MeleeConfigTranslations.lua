@@ -200,7 +200,7 @@ local meleeConfigTranslations = {
         ["esES"] = "Muestra/oculta el bonus de golpear",
         ["esMX"] = "Muestra/oculta el bonus de golpear"
     },
-    ["Miss Chance"] = {
+    ["Miss"] = {
         ["enUS"] = true,
         ["deDE"] = "Chance zu verfehlen",
         ["frFR"] = "Chances de rater",
@@ -208,6 +208,51 @@ local meleeConfigTranslations = {
         ["ruRU"] = "Сопротивление",
         ["esES"] = "Probabilidad de fallo",
         ["esMX"] = "Probabilidad de fallo"
+    },
+    ["Glancing Blow"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Glance"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Glance +2"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Glance Penalty"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Glance Penalty +2"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
     },
     ["Shows/Hides the melee miss chance against enemies on the same level."] = {
         ["enUS"] = true,
@@ -218,7 +263,7 @@ local meleeConfigTranslations = {
         ["esES"] = "Muestra/oculta la probabilidad de fallo contra enemigos del mismo nivel",
         ["esMX"] = "Muestra/oculta la probabilidad de fallo contra enemigos del mismo nivel"
     },
-    ["Miss Chance Boss"] = {
+    ["Miss (lvl + 2)"] = {
         ["enUS"] = true,
         ["deDE"] = "Chance zu verfehlen (Boss)",
         ["frFR"] = "Chances de rater-Boss",

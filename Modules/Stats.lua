@@ -159,6 +159,7 @@ end
 --- Helper function to iteracte all field of a given category and create them if they should be displayed
 ---@param category Category|SubCategory
 _CreateStatInfo = function(category, ...)
+    -- print(type(category))
     if (not ECS.IsWotlk) and category.isTbcOnly then
         return
     end
@@ -205,10 +206,14 @@ _CreateStatInfos = function()
     end
     if category.display then
         category = category.hit
+        
         _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.bossLevel)
+        category = profile.melee.glance
+        _CreateStatInfo(category, category.sameLevel, category.bossLevel, category.penaltySameLevel, category.penaltyBossLevel)
         category = profile.melee.attackSpeed
         _CreateStatInfo(category, category.mainHand, category.offHand)
     end
+    _CreateStatInfo(category, category.mainHand, category.offHand)
 
     category = profile.ranged
     if ECS.IsWotlk then
@@ -261,6 +266,7 @@ _CreateHeader = function(name, displayText, isSubHeader)
         xOffSet = 56
     end
     lastYOffset = lastYOffset - 20
+
     ---@class StatsHeader
     local header = table.remove(framePool)
     if not header then
@@ -295,7 +301,7 @@ _CreateText = function(name, displayText, isSubText)
     end
     stat:SetPoint("TOPLEFT", xOffSet,  lastYOffset)
     stat:SetText(displayText)
-    stat:SetFont(STANDARD_TEXT_FONT,  ExtendedCharacterStats.general.statFontSize)
+    stat:SetFont(STANDARD_TEXT_FONT, ExtendedCharacterStats.general.statFontSize)
     stat:Show()
     _Stats.displayedLines[name] = stat
 end
@@ -304,6 +310,7 @@ end
 ---@param frame StatsHeader|StatsText
 function Stats:RecycleFrame(frame)
     frame:Hide()
+    print(type(framepool), frame:displayedLines())
     table.insert(framePool, frame)
 end
 
@@ -314,6 +321,7 @@ function Stats:RebuildStatInfos()
 
     for _, entry in pairs(stats) do
         Stats:RecycleFrame(entry)
+        print(entry)
     end
 
     _Stats.displayedLines = {}

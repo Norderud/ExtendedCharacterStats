@@ -53,102 +53,6 @@ function _Config:LoadMeleeSection()
                     Stats:RebuildStatInfos()
                 end,
             },
-            penetration = {
-                type = "toggle",
-                order = 2.3,
-                name = function() return i18n("Armor Pen.") end,
-                desc = function() return i18n("Shows/Hides the armor penetration value.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.penetration.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.penetration.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
-            penetrationRating = {
-                type = "toggle",
-                order = 2.4,
-                name = function() return i18n("Armor Pen. Rating") end,
-                desc = function() return i18n("Shows/Hides the armor penetration rating value.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.penetrationRating.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.penetrationRating.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
-            expertise = {
-                type = "toggle",
-                order = 2.5,
-                name = function() return i18n("Expertise") end,
-                desc = function() return i18n("Shows/Hides the expertise value.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.expertise.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.expertise.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
-            expertiseRating = {
-                type = "toggle",
-                order = 2.6,
-                name = function() return i18n("Expertise Rating") end,
-                desc = function() return i18n("Shows/Hides the expertise rating.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.expertiseRating.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.expertiseRating.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
-            hasteRating = {
-                type = "toggle",
-                order = 2.6,
-                name = function() return i18n("Haste Rating") end,
-                desc = function() return i18n("Shows/Hides the melee haste rating.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.hasteRating.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.hasteRating.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
-            hasteBonus = {
-                type = "toggle",
-                order = 2.7,
-                name = function() return i18n("Haste Bonus") end,
-                desc = function() return i18n("Shows/Hides the melee haste bonus value.") end,
-                width = 1.5,
-                hidden = function()
-                    return (not ECS.IsWotlk)
-                end,
-                disabled = function() return (not ExtendedCharacterStats.profile.melee.display); end,
-                get = function () return ExtendedCharacterStats.profile.melee.hasteBonus.display; end,
-                set = function (_, value)
-                    ExtendedCharacterStats.profile.melee.hasteBonus.display = value
-                    Stats:RebuildStatInfos()
-                end,
-            },
             meleeHit = {
                 type = "toggle",
                 order = 3,
@@ -235,11 +139,43 @@ function _Config:LoadMeleeSection()
                             Stats:RebuildStatInfos()
                         end,
                     },
+                    meleeGlance = {
+                        type = "toggle",
+                        order = 5,
+                        name = function() return i18n("Glancing Blow Chance") end,
+                        desc = function() return i18n("Shows/Hides the melee miss chance against enemies on the same level.") end,
+                        width = 1.5,
+                        disabled = function()
+                            return ((not ExtendedCharacterStats.profile.melee.display) or
+                                    (not ExtendedCharacterStats.profile.melee.glance.display))
+                        end,
+                        get = function () return ExtendedCharacterStats.profile.melee.glance.sameLevel.display; end,
+                        set = function (_, value)
+                            ExtendedCharacterStats.profile.melee.glance.sameLevel.display = value
+                            Stats:RebuildStatInfos()
+                        end,
+                    },
+                    meleeGlanceBoss = {
+                        type = "toggle",
+                        order = 6,
+                        name = function() return i18n("Glancing Blow Chance Boss (+3 lvl)") end,
+                        desc = function() return i18n("Shows/Hides the melee miss chance against boss enemies (+3 Level).") end,
+                        width = 1.5,
+                        disabled = function()
+                            return ((not ExtendedCharacterStats.profile.melee.display) or
+                                    (not ExtendedCharacterStats.profile.melee.glance.display))
+                        end,
+                        get = function () return ExtendedCharacterStats.profile.melee.glance.bossLevel.display; end,
+                        set = function (_, value)
+                            ExtendedCharacterStats.profile.melee.glance.bossLevel.display = value
+                            Stats:RebuildStatInfos()
+                        end,
+                    },
                 }
             },
             meleeAttackSpeed = {
                 type = "toggle",
-                order = 5,
+                order = 7,
                 name = function() return i18n("Attack Speed") end,
                 desc = function() return i18n("Shows/Hides the melee attack speed.") end,
                 width = 1.5,
@@ -252,7 +188,7 @@ function _Config:LoadMeleeSection()
             },
             meleeAttackSpeedGroup = {
                 type = "group",
-                order = 6,
+                order = 8,
                 inline = true,
                 name = function() return i18n("Attack Speed") end,
                 args = {

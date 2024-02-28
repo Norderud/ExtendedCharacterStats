@@ -1,12 +1,12 @@
 ## Interface: 11501
-## Title: Extended Character Stats v3.2.2
-## Version: 3.2.2
-## Author: BreakBB, Ethulu
+## Title: Tyrone's Tactical Stats
+## Version: 1.0.0
+## Author: Tyrone (BreakBB, Ethulu)
 ## Notes: Displays an extra window with more information about your characters stats ( Crit/Hit/Block etc )
 ## Notes-esMX: Muestra una ventana adicional con más información sobre las estadísticas de tus personajes (Crítico/Golpe/Bloqueo, etc.)
 ## Notes-esES: Muestra una ventana adicional con más información sobre las estadísticas de tus personajes (Crítico/Golpe/Bloqueo, etc.)
 ## OptionalDeps: Ace3, CallbackHandler-1.0, LibStub
-## SavedVariablesPerCharacter: ExtendedCharacterStats
+## SavedVariablesPerCharacter: Tyrone's Tactical Stats
 ## DefaultState: enabled
 ## X-Curse-Project-ID: 334877
 ## X-Wago-ID: e56nwDK9

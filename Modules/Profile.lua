@@ -60,58 +60,60 @@ local function GetDefaultStatsProfile()
                 bossLevel = {
                     display = true,
                     refName = "MeleeHitBossLevel",
-                    text = "Miss (Lvl + 3)",
+                    text = "Miss (lvl + 2)",
                     textColor = colors.HIT_SECONDARY,
                     statColor = colors.HIT_PRIMARY
                 },
             },
+            glance = {
+                display = true,
+                isSubGroup = true,
+                refName = "MeleeGlanceHeader",
+                text = "Glancing Blow",
+
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceHitSameLevel",
+                    text = "Glance",
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                bossLevel = {
+                    display = true,
+                    refName = "GlanceHitBossLevel",
+                    text = "Glance +2",
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                penaltySameLevel = {
+                    display = true,
+                    refName = "GlancePenaltySameLevel",
+                    text = "Glance Penalty",
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                penaltyBossLevel = {
+                    display = true,
+                    refName = "GlancePenaltyBossLevel",
+                    text = "Glance Penalty +2",
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+            },
+
             attackPower = {
                 display = true,
                 refName = "MeleeAttackPower",
                 text = "Attack Power",
                 textColor = colors.ATTACK_POWER_SECONDARY,
-                statColor = colors.ATTACK_POWER_PRIMARY
+                statColor = colors.ATTACK_POWER_PRIMARY,
             },
             crit = {
                 display = true,
                 refName = "MeleeCritChance",
                 text = "Crit Chance",
                 textColor = colors.CRIT_SECONDARY,
-                statColor = colors.CRIT_PRIMARY
-            },
-            penetration = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeArmorPenetration",
-                text = "Armor Pen.",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            penetrationRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeArmorPenetrationRating",
-                text = "Armor Pen. Rating",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            expertise = {display = true, isTbcOnly = true, refName = "Expertise", text = "Expertise"},
-            expertiseRating = {display = true, isTbcOnly = true, refName = "ExpertiseRating", text = "Expertise Rating"},
-            hasteRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeHasteRating",
-                text = "Haste Rating",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
-            },
-            hasteBonus = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeHasteBonus",
-                text = "Haste Bonus",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
+                statColor = colors.CRIT_PRIMARY,
             },
             attackSpeed = {
                 display = true,
@@ -155,28 +157,28 @@ local function GetDefaultStatsProfile()
                     refName = "RangedHitRating",
                     text = "Rating",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 bonus = {
                     display = true,
                     refName = "RangedHitBonus",
                     text = "Bonus",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 sameLevel = {
                     display = true,
                     refName = "RangedHitSameLevel",
                     text = "Miss",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 bossLevel = {
                     display = true,
                     refName = "RangedHitBossLevel",
                     text = "Miss (Lvl + 3)",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
             },
             attackPower = {
@@ -184,53 +186,21 @@ local function GetDefaultStatsProfile()
                 refName = "RangeAttackpower",
                 text = "Attack Power",
                 textColor = colors.ATTACK_POWER_SECONDARY,
-                statColor = colors.ATTACK_POWER_PRIMARY
+                statColor = colors.ATTACK_POWER_PRIMARY,
             },
             crit = {
                 display = true,
                 refName = "RangedCritChance",
                 text = "Crit Chance",
                 textColor = colors.CRIT_SECONDARY,
-                statColor = colors.CRIT_PRIMARY
-            },
-            penetration = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedArmorPenetration",
-                text = "Armor Pen.",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            penetrationRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedArmorPenetrationRating",
-                text = "Armor Pen. Rating",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            hasteRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedHasteRating",
-                text = "Haste Rating",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
-            },
-            hasteBonus = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedHasteBonus",
-                text = "Haste Bonus",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
+                statColor = colors.CRIT_PRIMARY,
             },
             attackSpeed = {
                 display = true,
                 refName = "RangedAttackSpeed",
                 text = "Attack Speed",
                 textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY
+                statColor = colors.ATTACK_SPEED_PRIMARY,
             },
         },
 
@@ -476,7 +446,7 @@ local function GetDefaultStatsProfile()
                 textColor = colors.SHADOW_SECONDARY,
                 statColor = colors.SHADOW_PRIMARY
             },
-        }
+        },
     }
 end
 
@@ -491,7 +461,7 @@ local function GetDefaultGeneralSettings()
         profileVersion = 0,
         window = {
             height = 422,
-            width = 180,
+            width = 250,
             xOffset = -30,
             yOffset = 30
         }
