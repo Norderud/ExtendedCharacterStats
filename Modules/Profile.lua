@@ -65,6 +65,48 @@ local function GetDefaultStatsProfile()
                     statColor = colors.HIT_PRIMARY
                 },
             },
+            ---@class SubCategory
+            glance = {
+                display = true,
+                isSubGroup = true,
+                refName = "MeleeGlanceHeader",
+                text = "Glancing Blow",
+                weaponSkill = {
+                    display = true,
+                    refName = "WeaponSkill",
+                    text = "Weapon Skill",
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                },
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceHitSameLevel",
+                    text = "Glancing Blow",
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                },
+                bossLevel = {
+                    display = true,
+                    refName = "Glancing (lvl + 3)",
+                    text = "Miss (Lvl + 3)",
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                },
+                penaltySameLevel = {
+                    display = true,
+                    refName = "GlancePenaltySameLevel",
+                    text = "Glancing Blow Penalty",
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                }
+                penaltybossLevel = {
+                    display = true,
+                    refName = "GlancePenaltyBossLevel",
+                    text = "Glancing Blow Penalty (lvl + 3)",
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                }
+            },
             attackPower = {
                 display = true,
                 refName = "MeleeAttackPower",
