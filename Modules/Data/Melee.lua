@@ -115,11 +115,28 @@ function _Melee:GetHitFromBuffs()
 end
 
 ---@return string
-function Data:MeleeHitMissChanceSameLevel()
+function Data:MeleeHitMissSameLevel()
+    return Data:MeleeHitMissChanceByLevel(0)
+end
+---@return string
+function Data:MeleeHitMissOneLevel()
+    return Data:MeleeHitMissChanceByLevel(1)
+end
+---@return string
+function Data:MeleeHitMissTwoLevel()
+    return Data:MeleeHitMissChanceByLevel(2)
+end
+---@return string
+function Data:MeleeHitMissThreeLevel()
+    return Data:MeleeHitMissChanceByLevel(3)
+end
+
+---@return string
+function Data:MeleeHitMissChanceByLevel(level)
     local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
     local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = playerLevel * 5
-
+    local enemyDefenseValue = (playerLevel + level) * 5
+    
     local missChance
     if DataUtils:IsShapeshifted() then
         missChance = 5
@@ -145,83 +162,51 @@ function Data:MeleeHitMissChanceSameLevel()
     return DataUtils:Round(missChance, 2) .. "%"
 end
 
+function Data:GlanceChanceSameLevel()
+    return Data:GlanceChanceByLevel(0)
+end
+function Data:GlanceChanceOneLevel()
+    return Data:GlanceChanceByLevel(1)
+end
+function Data:GlanceChanceTwoLevel()
+    return Data:GlanceChanceByLevel(2)
+end
+function Data:GlanceChanceThreeLevel()
+    return Data:GlanceChanceByLevel(3)
+end
 ---@return string
-function Data:MeleeHitMissChanceBossLevel()
+function Data:GlanceChanceByLevel(level)
     local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
     local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = (playerLevel + 3) * 5
+    local enemyDefenseValue = (playerLevel + level) * 5
 
-    local missChance
-    if DataUtils:IsShapeshifted() then
-        missChance = ECS.IsWotlk and 8 or 9
-    else
-        missChance = DataUtils:GetMissChanceByDifference(mainBase + mainMod, enemyDefenseValue)
-    end
+    local glancingChance = DataUtils:GetGlancingChanceByDifference(playerLevel, mainBase + mainMod, enemyDefenseValue)
 
-    if Data:GetMeleeAttackSpeedOffHand() > 0 then
-        missChance = missChance + 19;
-    end
-
-    local hitValue = _Melee:GetHitRatingBonus()
-    if hitValue then -- This needs to be checked because on dungeon entering it becomes nil
-        missChance = missChance - hitValue
-    end
-
-    if missChance < 0 then
-        missChance = 0
-    elseif missChance > 100 then
-        missChance = 100
-    end
-
-    return DataUtils:Round(missChance, 2) .. "%"
+    return DataUtils:Round(glancingChance*100, 2) .. "%"
 end
 
----@return string
-function Data:GlanceSameLevel()
-    local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
-    local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = playerLevel * 5
-
-    local glancingChance
-    glancingChance = DataUtils:GetGlancingChanceByDifference(playerLevel, mainBase + mainMod, enemyDefenseValue)
-
-    return DataUtils:Round(glancingChance, 2) .. "%"
+function Data:GlanceDamageSameLevel()
+    return Data:GlanceDamageByLevel(0)
 end
-
----@return string
-function Data:GlanceBossLevel()
-    local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
-    local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = (playerLevel + 3) * 5
-
-    local glancingChance
-    glancingChance = DataUtils:GetGlancingChanceByDifference(playerLevel, mainBase + mainMod, enemyDefenseValue)
-
-    return DataUtils:Round(glancingChance, 2) .. "%"
+function Data:GlanceDamageOneLevel()
+    return Data:GlanceDamageByLevel(1)
 end
-
+function Data:GlanceDamageTwoLevel()
+    return Data:GlanceDamageByLevel(2)
+end
+function Data:GlanceDamageThreeLevel()
+    return Data:GlanceDamageByLevel(3)
+end
 ---@return string
-function Data:GlanceSameLevelPenalty()
+function Data:GlanceDamageByLevel(level)
     local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
     local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = playerLevel * 5
+    local enemyDefenseValue = (playerLevel + level) * 5
 
     local glancePenalty
-    glancePenalty = DataUtils:GetGlancingDamagePenalty(mainBase + mainMod, enemyDefenseValue)
+    glancePenalty = DataUtils:GetGlancingDamage(mainBase + mainMod, enemyDefenseValue)
 
-    return DataUtils:Round(glancePenalty, 2) .. "%"
-end
-
----@return string
-function Data:GlanceBossLevelPenalty()
-    local mainBase, mainMod, _, _ = UnitAttackBothHands("player")
-    local playerLevel = UnitLevel("player")
-    local enemyDefenseValue = (playerLevel + 3) * 5
-
-    local glancePenalty
-    glancePenalty = DataUtils:GetGlancingDamagePenalty(mainBase + mainMod, enemyDefenseValue)
-
-    return DataUtils:Round(glancePenalty, 2) .. "%"
+    return DataUtils:Round(glancePenalty*100, 2) .. "%"
 end
 
 ---@return number

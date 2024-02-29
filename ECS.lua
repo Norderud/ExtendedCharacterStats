@@ -20,7 +20,6 @@ ECS.IsSoD = ECS.IsClassic and C_Seasons.HasActiveSeason() and (C_Seasons.GetActi
 ---@type Init
 local Init = ECSLoader:ImportModule("Init")
 
-
 local loadingFrame = CreateFrame("Frame")
 ECS.loadingFrame = loadingFrame
 

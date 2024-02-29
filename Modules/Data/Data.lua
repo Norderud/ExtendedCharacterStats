@@ -55,12 +55,21 @@ dataFunctionRefs = {
         end
     end,
     ["MeleeHitBonus"] = function() return Data:MeleeHitBonus() end,
-    ["MeleeHitSameLevel"] = function() return Data:MeleeHitMissChanceSameLevel() end,
-    ["MeleeHitBossLevel"] = function() return Data:MeleeHitMissChanceBossLevel() end,
-    ["GlanceHitSameLevel"] = function() return Data:GlanceSameLevel() end,
-    ["GlanceHitBossLevel"] = function() return Data:GlanceBossLevel() end,
-    ["GlancePenaltySameLevel"] = function() return Data:GlanceSameLevelPenalty() end,
-    ["GlancePenaltyBossLevel"] = function() return Data:GlanceBossLevelPenalty() end,
+    ["MeleeHitMissSameLevel"] = function() return Data:MeleeHitMissSameLevel() end,
+    ["MeleeHitMissOneLevel"] = function() return Data:MeleeHitMissOneLevel() end,
+    ["MeleeHitMissTwoLevel"] = function() return Data:MeleeHitMissTwoLevel() end,
+    ["MeleeHitMissThreeLevel"] = function() return Data:MeleeHitMissThreeLevel() end,
+
+    ["GlanceChanceSameLevel"] = function() return Data:GlanceChanceSameLevel() end,
+    ["GlanceChanceOneLevel"] = function() return Data:GlanceChanceOneLevel() end,
+    ["GlanceChanceTwoLevel"] = function() return Data:GlanceChanceTwoLevel() end,
+    ["GlanceChanceThreeLevel"] = function() return Data:GlanceChanceThreeLevel() end,
+
+    ["GlanceDamageSameLevel"] = function() return Data:GlanceDamageSameLevel() end,
+    ["GlanceDamageOneLevel"] = function() return Data:GlanceDamageOneLevel() end,
+    ["GlanceDamageTwoLevel"] = function() return Data:GlanceDamageTwoLevel() end,
+    ["GlanceDamageThreeLevel"] = function() return Data:GlanceDamageThreeLevel() end,
+
     ["MeleeHasteRating"] = function()
         if ECS.IsWotlk then
             return Data:GetMeleeHasteRating()
