@@ -52,55 +52,33 @@ local function GetDefaultStatsProfile()
                 },
                 sameLevel = {
                     display = true,
-                    refName = "MeleeHitSameLevel",
-                    text = "Miss",
+                    refName = "MeleeHitMissSameLevel",
+                    text = "Miss vs lvl ".. UnitLevel("player"),
                     textColor = colors.HIT_SECONDARY,
                     statColor = colors.HIT_PRIMARY
                 },
-                bossLevel = {
+                oneLevel = {
                     display = true,
-                    refName = "MeleeHitBossLevel",
-                    text = "Miss (lvl + 2)",
+                    refName = "MeleeHitMissOneLevel",
+                    text = "Miss vs lvl ".. (UnitLevel("player") + 1),
                     textColor = colors.HIT_SECONDARY,
                     statColor = colors.HIT_PRIMARY
                 },
-            },
-            glance = {
-                display = true,
-                isSubGroup = true,
-                refName = "MeleeGlanceHeader",
-                text = "Glancing Blow",
-
-                sameLevel = {
+                twoLevel = {
                     display = true,
-                    refName = "GlanceHitSameLevel",
-                    text = "Glance",
-                    textColor = colors.HOLY_SECONDARY,
-                    statColor = colors.HOLY_PRIMARY,
+                    refName = "MeleeHitMissTwoLevel",
+                    text = "Miss vs lvl " .. (UnitLevel("player") + 2),
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
                 },
-                bossLevel = {
+                threeLevel = {
                     display = true,
-                    refName = "GlanceHitBossLevel",
-                    text = "Glance +2",
-                    textColor = colors.HOLY_SECONDARY,
-                    statColor = colors.HOLY_PRIMARY,
-                },
-                penaltySameLevel = {
-                    display = true,
-                    refName = "GlancePenaltySameLevel",
-                    text = "Glance Penalty",
-                    textColor = colors.HOLY_SECONDARY,
-                    statColor = colors.HOLY_PRIMARY,
-                },
-                penaltyBossLevel = {
-                    display = true,
-                    refName = "GlancePenaltyBossLevel",
-                    text = "Glance Penalty +2",
-                    textColor = colors.HOLY_SECONDARY,
-                    statColor = colors.HOLY_PRIMARY,
+                    refName = "MeleeHitMissThreeLevel",
+                    text = "Miss vs lvl " .. (UnitLevel("player") + 3),
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY,
                 },
             },
-
             attackPower = {
                 display = true,
                 refName = "MeleeAttackPower",
@@ -129,7 +107,7 @@ local function GetDefaultStatsProfile()
                     statColor = colors.ATTACK_SPEED_PRIMARY
                 },
                 offHand = {
-                    display = true,
+                    display = not IsEquippedItemType("Two-Hand"),
                     refName = "MeleeAttackSpeedOffHand",
                     text = "Off Hand",
                     textColor = colors.ATTACK_SPEED_SECONDARY,
@@ -137,7 +115,82 @@ local function GetDefaultStatsProfile()
                 },
             },
         },
+        ---@type Category
+        glance = {
+            display = true,
+            refName = "MeleeGlanceHeader",
+            text = "Glancing Blow",
 
+            ---@type SubCategory
+            chance = {
+                display = true,
+                isSubGroup = true,
+                refName = "MeleeGlanceChanceHeader",
+                text = "Glance Chance",
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceChanceSameLevel",
+                    text = "Chance vs lvl ".. UnitLevel("player"),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                oneLevel = {
+                    display = true,
+                    refName = "GlanceChanceOneLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 1),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                twoLevel = {
+                    display = true,
+                    refName = "GlanceChanceTwoLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 2),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                threeLevel = {
+                    display = true,
+                    refName = "GlanceChanceThreeLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 3),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+            },
+            damage = {
+                display = true,
+                isSubGroup = true,
+                refName = "GlanceDamage",
+                text = "Damage Modifier",
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceDamageSameLevel",
+                    text = "Damage vs lvl ".. UnitLevel("player"),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                oneLevel = {
+                    display = true,
+                    refName = "GlanceDamageOneLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 1),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                twoLevel = {
+                    display = true,
+                    refName = "GlanceDamageTwoLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 2),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                threeLevel = {
+                    display = true,
+                    refName = "GlanceDamageThreeLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 3),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+            },
+        },
         ---@type Category
         ranged = {
             display = true,

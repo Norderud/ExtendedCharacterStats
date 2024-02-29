@@ -204,16 +204,19 @@ _CreateStatInfos = function()
     else
         _CreateStatInfo(category, category.attackPower, category.crit)
     end
+    _CreateStatInfo(category, category.mainHand, category.offHand)
+
     if category.display then
         category = category.hit
-        
-        _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.bossLevel)
-        category = profile.melee.glance
-        _CreateStatInfo(category, category.sameLevel, category.bossLevel, category.penaltySameLevel, category.penaltyBossLevel)
-        category = profile.melee.attackSpeed
-        _CreateStatInfo(category, category.mainHand, category.offHand)
+        _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
     end
-    _CreateStatInfo(category, category.mainHand, category.offHand)
+
+    category = profile.glance.chance
+    _CreateStatInfo(category, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
+
+    category = profile.glance.damage
+    _CreateStatInfo(category, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
+
 
     category = profile.ranged
     if ECS.IsWotlk then
@@ -310,7 +313,6 @@ end
 ---@param frame StatsHeader|StatsText
 function Stats:RecycleFrame(frame)
     frame:Hide()
-    print(type(framepool), frame:displayedLines())
     table.insert(framePool, frame)
 end
 
@@ -321,7 +323,6 @@ function Stats:RebuildStatInfos()
 
     for _, entry in pairs(stats) do
         Stats:RecycleFrame(entry)
-        print(entry)
     end
 
     _Stats.displayedLines = {}

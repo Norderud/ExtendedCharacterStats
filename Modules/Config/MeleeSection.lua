@@ -158,7 +158,7 @@ function _Config:LoadMeleeSection()
                     meleeGlanceBoss = {
                         type = "toggle",
                         order = 6,
-                        name = function() return i18n("Glancing Blow Chance Boss (+3 lvl)") end,
+                        name = function() return i18n("Glancing Blow Chance Boss (+2 lvl)") end,
                         desc = function() return i18n("Shows/Hides the melee miss chance against boss enemies (+3 Level).") end,
                         width = 1.5,
                         disabled = function()

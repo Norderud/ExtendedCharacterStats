@@ -27,7 +27,7 @@ local function translate(key, ...)
     local translationEntry = i18n.translations[key]
     if translationEntry == nil then
         -- Translation for the key is missing completely
-        ECS:Error("The translation for <".. tostring(key) .. "> is missing completely. Please report this!")
+        -- ECS:Error("The translation for <".. tostring(key) .. "> is missing completely. Please report this!")
         return string.format(key, unpack(args))
     end
 

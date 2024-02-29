@@ -37,7 +37,7 @@ function DataUtils:GetGlancingChanceByDifference(level, weaponSkill, defenseValu
     return 0.1 + (defenseValue - math.min(level*5, weaponSkill)) * 0.02
 end
 
-function DataUtils:GetGlancingDamagePenalty(weaponSkill, defenseValue)
+function DataUtils:GetGlancingDamage(weaponSkill, defenseValue)
     local difference = defenseValue - weaponSkill
     local low = math.min(0.91 ,(1.3 - 0.05 * difference))
   

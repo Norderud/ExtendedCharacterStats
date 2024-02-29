@@ -209,6 +209,15 @@ local meleeConfigTranslations = {
         ["esES"] = "Probabilidad de fallo",
         ["esMX"] = "Probabilidad de fallo"
     },
+    ["Miss vs lvl 1"] = {
+        ["enUS"] = true,
+        ["deDE"] = "Chance zu verfehlen",
+        ["frFR"] = "Chances de rater",
+        ["zhCN"] = "未命中几率",
+        ["ruRU"] = "Сопротивление",
+        ["esES"] = "Probabilidad de fallo",
+        ["esMX"] = "Probabilidad de fallo"
+    },
     ["Glancing Blow"] = {
         ["enUS"] = true,
         ["deDE"] = false,
@@ -218,7 +227,7 @@ local meleeConfigTranslations = {
         ["esES"] = false,
         ["esMX"] = false
     },
-    ["Glance"] = {
+    ["Glance Chance"] = {
         ["enUS"] = true,
         ["deDE"] = false,
         ["frFR"] = false,
@@ -227,7 +236,7 @@ local meleeConfigTranslations = {
         ["esES"] = false,
         ["esMX"] = false
     },
-    ["Glance +2"] = {
+    ["Chance (lvl + 1)"] = {
         ["enUS"] = true,
         ["deDE"] = false,
         ["frFR"] = false,
@@ -236,7 +245,7 @@ local meleeConfigTranslations = {
         ["esES"] = false,
         ["esMX"] = false
     },
-    ["Glance Penalty"] = {
+    ["Chance (lvl + 2)"] = {
         ["enUS"] = true,
         ["deDE"] = false,
         ["frFR"] = false,
@@ -245,7 +254,43 @@ local meleeConfigTranslations = {
         ["esES"] = false,
         ["esMX"] = false
     },
-    ["Glance Penalty +2"] = {
+    ["Chance (lvl + 3)"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Damage"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Damage (lvl + 1)"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Damage (lvl + 2)"] = {
+        ["enUS"] = true,
+        ["deDE"] = false,
+        ["frFR"] = false,
+        ["zhCN"] = false,
+        ["ruRU"] = false,
+        ["esES"] = false,
+        ["esMX"] = false
+    },
+    ["Damage (lvl + 3)"] = {
         ["enUS"] = true,
         ["deDE"] = false,
         ["frFR"] = false,
@@ -263,7 +308,25 @@ local meleeConfigTranslations = {
         ["esES"] = "Muestra/oculta la probabilidad de fallo contra enemigos del mismo nivel",
         ["esMX"] = "Muestra/oculta la probabilidad de fallo contra enemigos del mismo nivel"
     },
+    ["Miss vs lvl "] = {
+        ["enUS"] = true,
+        ["deDE"] = "Chance zu verfehlen (Boss)",
+        ["frFR"] = "Chances de rater-Boss",
+        ["zhCN"] = "未命中 Boss",
+        ["ruRU"] = "Сопрот. (+3 ур.)",
+        ["esES"] = "Probabilidad de fallo (jefe)",
+        ["esMX"] = "Probabilidad de fallo (jefe)"
+    },
     ["Miss (lvl + 2)"] = {
+        ["enUS"] = true,
+        ["deDE"] = "Chance zu verfehlen (Boss)",
+        ["frFR"] = "Chances de rater-Boss",
+        ["zhCN"] = "未命中 Boss",
+        ["ruRU"] = "Сопрот. (+3 ур.)",
+        ["esES"] = "Probabilidad de fallo (jefe)",
+        ["esMX"] = "Probabilidad de fallo (jefe)"
+    },
+    ["Miss (lvl + 3)"] = {
         ["enUS"] = true,
         ["deDE"] = "Chance zu verfehlen (Boss)",
         ["frFR"] = "Chances de rater-Boss",
