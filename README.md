@@ -1,4 +1,4 @@
-# ExtendedCharacterStats Addon
+# Tyrone's ExtendedCharacterStats Addon
 
 ## Overview
 
