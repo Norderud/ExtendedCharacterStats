@@ -14,10 +14,7 @@ function EventHandler.Init()
     currentGroupMembers = GetNumGroupMembers()
 
     C_Timer.NewTicker(UPDATE_INTERVAL, function()
-        if shouldUpdate then
-            Stats:UpdateInformation()
-            shouldUpdate = false
-        end
+        Stats:UpdateInformation()
     end)
 end
 
