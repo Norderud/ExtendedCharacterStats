@@ -1,29 +1,47 @@
-# Extended Character Stats
+# ExtendedCharacterStats Addon
 
-![build](https://github.com/BreakBB/ExtendedCharacterStats/workflows/build/badge.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+## Overview
 
-[![Downloads](https://img.shields.io/github/downloads/BreakBB/ExtendedCharacterStats/total.svg)](https://github.com/BreakBB/ExtendedCharacterStats/releases/)
-[![Downloads Latest](https://img.shields.io/github/downloads/BreakBB/ExtendedCharacterStats/v3.2.2/total.svg)](https://github.com/BreakBB/ExtendedCharacterStats/releases/latest)
-[![Date Latest](https://img.shields.io/github/release-date/BreakBB/ExtendedCharacterStats.svg)](https://github.com/BreakBB/ExtendedCharacterStats/releases/latest)
-[![Commits Since Latest](https://img.shields.io/github/commits-since/BreakBB/ExtendedCharacterStats/latest.svg)](https://github.com/BreakBB/ExtendedCharacterStats/commits/master)
+Welcome to Tyrone's ExtendedCharacterStats addon, an enhanced and refined version of the original ExtendedCharacterStats addon for World of Warcraft. This addon aims to provide an unparalleled level of depth and complexity to your character's statistics, empowering you with a comprehensive understanding of your in-game performance.
 
-#### A simple addon to list all the available stats not displayed in the character info pane by default
+## Features
 
+### Advanced Stat Tracking
 
-### [Download on CurseForge](https://www.curseforge.com/wow/addons/extended-character-stats/files)
+Tyrone's ExtendedCharacterStats goes beyond the standard character sheet by introducing an array of advanced statistical metrics. From intricate damage breakdowns to detailed resource management analysis, this addon offers an unprecedented level of insight into your character's capabilities.
 
-### [Download on GitHub](https://github.com/BreakBB/ExtendedCharacterStats/releases/latest)
+### Customizable Display
 
-![image](https://user-images.githubusercontent.com/33514570/120346975-2ac47f80-c2fc-11eb-90d4-c012a1e56296.png)
+With Tyrone's ExtendedCharacterStats, you have full control over how your character's statistics are presented. Tailor the display to your preferences, choosing from a wide range of customizable options, including font styles, color schemes, and layout configurations.
 
+### Comparative Analysis
 
-## Issues / Bug reports
+Gain a competitive edge by comparing your character's performance against other players. Tyrone's ExtendedCharacterStats provides comprehensive benchmarking tools, allowing you to evaluate your progress and identify areas for improvement.
 
-**Please file any reports of issues and/or bugs to the [GitHub Repository](https://github.com/BreakBB/ExtendedCharacterStats/issues/new/choose)!**
+### Real-time Updates
 
+Stay informed about your character's performance in real-time. Tyrone's ExtendedCharacterStats continuously updates your statistics as you engage in combat, ensuring that you have the most up-to-date information at your fingertips.
 
-## Donation
+## Installation
 
-If you like this addon and want to support the development of it, you can do so here:
+To install Tyrone's ExtendedCharacterStats, simply follow these steps:
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T9DMPD9EZDC98&source=url"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"/></a>
+1. Download the addon files from this GitHub Repo.
+2. Extract the files to the `Interface/AddOns` folder in your World of Warcraft installation directory.
+3. Launch the game and navigate to the Addons menu.
+4. Enable ExtendedCharacterStats from the list of available addons.
+5. Enjoy the enhanced statistical insights and improved gameplay experience!
+
+## Feedback and Support
+
+We value your feedback and are committed to continuously improving Tyrone's ExtendedCharacterStats addon. If you encounter any issues or have suggestions for future enhancements, please visit our official support forum or reach out to our dedicated support team.
+
+## License
+
+ExtendedCharacterStats is released under the [MIT License](https://opensource.org/licenses/MIT). Feel free to modify and distribute this addon in accordance with the terms of the license.
+
+## Acknowledgements
+
+We would like to express our gratitude to the original creators of the ExtendedCharacterStats addon for laying the foundation upon which this improved version is built. Without their pioneering work, this addon would not have been possible.
+
+Happy gaming!
