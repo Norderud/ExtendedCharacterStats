@@ -107,7 +107,7 @@ local function GetDefaultStatsProfile()
                     statColor = colors.ATTACK_SPEED_PRIMARY
                 },
                 offHand = {
-                    display = not IsEquippedItemType("Two-Hand"),
+                    display = true,
                     refName = "MeleeAttackSpeedOffHand",
                     text = "Off Hand",
                     textColor = colors.ATTACK_SPEED_SECONDARY,
