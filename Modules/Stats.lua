@@ -204,12 +204,11 @@ _CreateStatInfos = function()
     else
         _CreateStatInfo(category, category.attackPower, category.crit)
     end
-    
     category = profile.melee.attackSpeed
     _CreateStatInfo(category, category.mainHand, category.offHand)
 
     if category.display then
-        category = category.hit
+        category = profile.melee.hit
         _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
     end
 
