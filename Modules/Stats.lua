@@ -46,7 +46,7 @@ function Stats.CreateWindow()
     mainFrame.title = mainFrame:CreateFontString(nil, "OVERLAY")
     mainFrame.title:SetFontObject("GameFontHighlight")
     mainFrame.title:SetPoint("CENTER", mainFrame.TitleBg, "CENTER", 11,  0)
-    mainFrame.title:SetText(i18n("ECS %s", Utils:GetAddonVersionString()))
+    mainFrame.title:SetText(i18n("Tyrone's Tactical Tabulation %s", Utils:GetAddonVersionString()))
 
     mainFrame.configButton = CreateFrame("Button", nil, mainFrame, "GameMenuButtonTemplate")
     mainFrame.configButton:SetText(i18n("Settings"))

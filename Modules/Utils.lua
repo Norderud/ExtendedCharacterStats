@@ -70,9 +70,10 @@ end
 local cachedTitle
 function Utils:GetAddonVersionInfo()
     if (not cachedTitle) then
-        local _, title, _, _, _ = GetAddOnInfo("ExtendedCharacterStats")
+        local _, title, _, _, _ = C_AddOns.GetAddOnInfo("ExtendedCharacterStats")
         cachedTitle = title
     end
+    cachedTitle = cachedTitle .. "1.0.0"
     -- %d = digit, %p = punctuation character, %x = hexadecimal digits.
     local major, minor, patch, _ = string.match(cachedTitle, "(%d+)%p(%d+)%p(%d+)")
     return tonumber(major), tonumber(minor), tonumber(patch)
