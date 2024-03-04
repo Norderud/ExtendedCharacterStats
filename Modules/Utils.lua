@@ -30,9 +30,9 @@ Utils.colors = {
     CRIT_SECONDARY = "ff6659",
     HIT_PRIMARY = "558b2f",
     HIT_SECONDARY = "85bb5c",
-    --ATTACK_SPEED_PRIMARY = "006978",
+    GLANCE_PRIMARY = "ffa000",
+    GLANCE_SECONDARY = "ffd149",
     ATTACK_SPEED_PRIMARY = "00766c",
-    --ATTACK_SPEED_SECONDARY = "0097a7",
     ATTACK_SPEED_SECONDARY = "009688",
     MP5_PRIMARY = "0d47a1",
     MP5_SECONDARY = "5472d3",
@@ -70,9 +70,10 @@ end
 local cachedTitle
 function Utils:GetAddonVersionInfo()
     if (not cachedTitle) then
-        local _, title, _, _, _ = GetAddOnInfo("ExtendedCharacterStats")
+        local _, title, _, _, _ = C_AddOns.GetAddOnInfo("ExtendedCharacterStats")
         cachedTitle = title
     end
+    cachedTitle = cachedTitle .. "1.0.0"
     -- %d = digit, %p = punctuation character, %x = hexadecimal digits.
     local major, minor, patch, _ = string.match(cachedTitle, "(%d+)%p(%d+)%p(%d+)")
     return tonumber(major), tonumber(minor), tonumber(patch)

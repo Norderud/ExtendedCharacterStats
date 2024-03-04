@@ -46,7 +46,7 @@ function Stats.CreateWindow()
     mainFrame.title = mainFrame:CreateFontString(nil, "OVERLAY")
     mainFrame.title:SetFontObject("GameFontHighlight")
     mainFrame.title:SetPoint("CENTER", mainFrame.TitleBg, "CENTER", 11,  0)
-    mainFrame.title:SetText(i18n("ECS %s", Utils:GetAddonVersionString()))
+    mainFrame.title:SetText(i18n("Tyrone's Tactical Tabulation %s", Utils:GetAddonVersionString()))
 
     mainFrame.configButton = CreateFrame("Button", nil, mainFrame, "GameMenuButtonTemplate")
     mainFrame.configButton:SetText(i18n("Settings"))
@@ -159,6 +159,7 @@ end
 --- Helper function to iteracte all field of a given category and create them if they should be displayed
 ---@param category Category|SubCategory
 _CreateStatInfo = function(category, ...)
+    -- print(type(category))
     if (not ECS.IsWotlk) and category.isTbcOnly then
         return
     end
@@ -203,12 +204,20 @@ _CreateStatInfos = function()
     else
         _CreateStatInfo(category, category.attackPower, category.crit)
     end
+    category = profile.melee.attackSpeed
+    _CreateStatInfo(category, category.mainHand, category.offHand)
+
     if category.display then
-        category = category.hit
-        _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.bossLevel)
-        category = profile.melee.attackSpeed
-        _CreateStatInfo(category, category.mainHand, category.offHand)
+        category = profile.melee.hit
+        _CreateStatInfo(category, category.rating, category.bonus, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
     end
+
+    category = profile.glance.chance
+    _CreateStatInfo(category, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
+
+    category = profile.glance.damage
+    _CreateStatInfo(category, category.sameLevel, category.oneLevel, category.twoLevel, category.threeLevel)
+
 
     category = profile.ranged
     if ECS.IsWotlk then
@@ -261,6 +270,7 @@ _CreateHeader = function(name, displayText, isSubHeader)
         xOffSet = 56
     end
     lastYOffset = lastYOffset - 20
+
     ---@class StatsHeader
     local header = table.remove(framePool)
     if not header then
@@ -295,7 +305,7 @@ _CreateText = function(name, displayText, isSubText)
     end
     stat:SetPoint("TOPLEFT", xOffSet,  lastYOffset)
     stat:SetText(displayText)
-    stat:SetFont(STANDARD_TEXT_FONT,  ExtendedCharacterStats.general.statFontSize)
+    stat:SetFont(STANDARD_TEXT_FONT, ExtendedCharacterStats.general.statFontSize)
     stat:Show()
     _Stats.displayedLines[name] = stat
 end

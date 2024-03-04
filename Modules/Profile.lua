@@ -52,17 +52,31 @@ local function GetDefaultStatsProfile()
                 },
                 sameLevel = {
                     display = true,
-                    refName = "MeleeHitSameLevel",
-                    text = "Miss",
+                    refName = "MeleeHitMissSameLevel",
+                    text = "Miss vs lvl ".. UnitLevel("player"),
                     textColor = colors.HIT_SECONDARY,
                     statColor = colors.HIT_PRIMARY
                 },
-                bossLevel = {
+                oneLevel = {
                     display = true,
-                    refName = "MeleeHitBossLevel",
-                    text = "Miss (Lvl + 3)",
+                    refName = "MeleeHitMissOneLevel",
+                    text = "Miss vs lvl ".. (UnitLevel("player") + 1),
                     textColor = colors.HIT_SECONDARY,
                     statColor = colors.HIT_PRIMARY
+                },
+                twoLevel = {
+                    display = true,
+                    refName = "MeleeHitMissTwoLevel",
+                    text = "Miss vs lvl " .. (UnitLevel("player") + 2),
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY
+                },
+                threeLevel = {
+                    display = true,
+                    refName = "MeleeHitMissThreeLevel",
+                    text = "Miss vs lvl " .. (UnitLevel("player") + 3),
+                    textColor = colors.HIT_SECONDARY,
+                    statColor = colors.HIT_PRIMARY,
                 },
             },
             attackPower = {
@@ -70,48 +84,14 @@ local function GetDefaultStatsProfile()
                 refName = "MeleeAttackPower",
                 text = "Attack Power",
                 textColor = colors.ATTACK_POWER_SECONDARY,
-                statColor = colors.ATTACK_POWER_PRIMARY
+                statColor = colors.ATTACK_POWER_PRIMARY,
             },
             crit = {
                 display = true,
                 refName = "MeleeCritChance",
                 text = "Crit Chance",
                 textColor = colors.CRIT_SECONDARY,
-                statColor = colors.CRIT_PRIMARY
-            },
-            penetration = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeArmorPenetration",
-                text = "Armor Pen.",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            penetrationRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeArmorPenetrationRating",
-                text = "Armor Pen. Rating",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            expertise = {display = true, isTbcOnly = true, refName = "Expertise", text = "Expertise"},
-            expertiseRating = {display = true, isTbcOnly = true, refName = "ExpertiseRating", text = "Expertise Rating"},
-            hasteRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeHasteRating",
-                text = "Haste Rating",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
-            },
-            hasteBonus = {
-                display = true,
-                isTbcOnly = true,
-                refName = "MeleeHasteBonus",
-                text = "Haste Bonus",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
+                statColor = colors.CRIT_PRIMARY,
             },
             attackSpeed = {
                 display = true,
@@ -135,7 +115,82 @@ local function GetDefaultStatsProfile()
                 },
             },
         },
+        ---@type Category
+        glance = {
+            display = true,
+            refName = "MeleeGlanceHeader",
+            text = "Glancing Blow",
 
+            ---@type SubCategory
+            chance = {
+                display = true,
+                isSubGroup = true,
+                refName = "MeleeGlanceChanceHeader",
+                text = "Glance Chance",
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceChanceSameLevel",
+                    text = "Chance vs lvl ".. UnitLevel("player"),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                oneLevel = {
+                    display = true,
+                    refName = "GlanceChanceOneLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 1),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                twoLevel = {
+                    display = true,
+                    refName = "GlanceChanceTwoLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 2),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                threeLevel = {
+                    display = true,
+                    refName = "GlanceChanceThreeLevel",
+                    text = "Chance vs lvl ".. (UnitLevel("player") + 3),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+            },
+            damage = {
+                display = true,
+                isSubGroup = true,
+                refName = "GlanceDamage",
+                text = "Damage Modifier",
+                sameLevel = {
+                    display = true,
+                    refName = "GlanceDamageSameLevel",
+                    text = "Damage vs lvl ".. UnitLevel("player"),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                oneLevel = {
+                    display = true,
+                    refName = "GlanceDamageOneLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 1),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                twoLevel = {
+                    display = true,
+                    refName = "GlanceDamageTwoLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 2),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+                threeLevel = {
+                    display = true,
+                    refName = "GlanceDamageThreeLevel",
+                    text = "Damage vs lvl ".. (UnitLevel("player") + 3),
+                    textColor = colors.HOLY_SECONDARY,
+                    statColor = colors.HOLY_PRIMARY,
+                },
+            },
+        },
         ---@type Category
         ranged = {
             display = true,
@@ -155,28 +210,28 @@ local function GetDefaultStatsProfile()
                     refName = "RangedHitRating",
                     text = "Rating",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 bonus = {
                     display = true,
                     refName = "RangedHitBonus",
                     text = "Bonus",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 sameLevel = {
                     display = true,
                     refName = "RangedHitSameLevel",
                     text = "Miss",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
                 bossLevel = {
                     display = true,
                     refName = "RangedHitBossLevel",
                     text = "Miss (Lvl + 3)",
                     textColor = colors.HIT_SECONDARY,
-                    statColor = colors.HIT_PRIMARY
+                    statColor = colors.HIT_PRIMARY,
                 },
             },
             attackPower = {
@@ -184,53 +239,21 @@ local function GetDefaultStatsProfile()
                 refName = "RangeAttackpower",
                 text = "Attack Power",
                 textColor = colors.ATTACK_POWER_SECONDARY,
-                statColor = colors.ATTACK_POWER_PRIMARY
+                statColor = colors.ATTACK_POWER_PRIMARY,
             },
             crit = {
                 display = true,
                 refName = "RangedCritChance",
                 text = "Crit Chance",
                 textColor = colors.CRIT_SECONDARY,
-                statColor = colors.CRIT_PRIMARY
-            },
-            penetration = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedArmorPenetration",
-                text = "Armor Pen.",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            penetrationRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedArmorPenetrationRating",
-                text = "Armor Pen. Rating",
-                textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY,
-            },
-            hasteRating = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedHasteRating",
-                text = "Haste Rating",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
-            },
-            hasteBonus = {
-                display = true,
-                isTbcOnly = true,
-                refName = "RangedHasteBonus",
-                text = "Haste Bonus",
-                textColor = colors.HASTE_RATING_SECONDARY,
-                statColor = colors.HASTE_RATING_PRIMARY
+                statColor = colors.CRIT_PRIMARY,
             },
             attackSpeed = {
                 display = true,
                 refName = "RangedAttackSpeed",
                 text = "Attack Speed",
                 textColor = colors.ATTACK_SPEED_SECONDARY,
-                statColor = colors.ATTACK_SPEED_PRIMARY
+                statColor = colors.ATTACK_SPEED_PRIMARY,
             },
         },
 
@@ -476,7 +499,7 @@ local function GetDefaultStatsProfile()
                 textColor = colors.SHADOW_SECONDARY,
                 statColor = colors.SHADOW_PRIMARY
             },
-        }
+        },
     }
 end
 
@@ -491,7 +514,7 @@ local function GetDefaultGeneralSettings()
         profileVersion = 0,
         window = {
             height = 422,
-            width = 180,
+            width = 250,
             xOffset = -30,
             yOffset = 30
         }
